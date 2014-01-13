@@ -19,19 +19,19 @@ function github_plugin_updater_test_init() {
 
                 $config = array(
                         'slug' => plugin_basename( __FILE__ ),
-                        'proper_folder_name' => 'github-updater',
-                        'api_url' => 'https://api.github.com/repos/jkudish/WordPress-GitHub-Plugin-Updater',
-                        'raw_url' => 'https://raw.github.com/jkudish/WordPress-GitHub-Plugin-Updater/master',
-                        'github_url' => 'https://github.com/jkudish/WordPress-GitHub-Plugin-Updater',
-                        'zip_url' => 'https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/archive/master.zip',
+                        'proper_folder_name' => 'wusm-accordion',
+                        'api_url' => 'https://api.github.com/repos/coderaaron/wusm-accordion',
+                        'raw_url' => 'https://raw.github.com/coderaaron/wusm-accordion/master',
+                        'github_url' => 'https://github.com/coderaaron/wusm-accordion',
+                        'zip_url' => 'https://github.com/coderaaron/wusm-accordion/archive/master.zip',
                         'sslverify' => true,
                         'requires' => '3.0',
-                        'tested' => '3.3',
+                        'tested' => '3.8',
                         'readme' => 'README.md',
                         'access_token' => '',
                 );
 
-                new wusm_accordion_plugin( $config );
+                new WP_GitHub_Updater( $config );
 
         }
 
