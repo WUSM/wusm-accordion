@@ -4,7 +4,7 @@ Plugin Name: WUSM accordion
 Plugin URI: 
 Description: Add accordions to WUSM sites
 Author: Aaron Graham
-Version: 0.2
+Version: 0.5
 Author URI: 
 */
 
@@ -44,10 +44,15 @@ class wusm_accordion_plugin {
 	 *
 	 */
 	public function __construct() {
+		add_shortcode( 'wusm_expand_all', array( $this, 'accordion_shortcode' ) );
 		add_filter( 'mce_buttons_2', array( $this, 'my_mce_buttons_2' ) );
 		add_filter('tiny_mce_before_init', array( $this, 'aah_customize_mce' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'accordion_shortcode_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'accordion_shortcode_admin_styles' ) );
+	}
+
+	public function accordion_shortcode( $atts, $content = null ) {
+		return "<p class='expand-all'>Expand all</p>";
 	}
 
 	// add style selector drop down 

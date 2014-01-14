@@ -10,5 +10,12 @@ jQuery(document).ready(function($) {
 			( $this.find(".d1").css('top') === '29px' ) ? $this.find(".d1").animate({ top: 200}) : $this.find(".d1").animate({ top: 29});
 			$this.next('.answer').slideToggle();
 		});
+
+		$('.expand-all').on('click', function() {
+			( $(this).html() === 'Expand all' ) ? $(this).html('Collapse all') : $(this).html('Expand all')
+			$('.question').each(function() {
+				$(this).click();
+			});
+		});
 	}
 });

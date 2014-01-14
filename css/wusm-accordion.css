@@ -47,3 +47,7 @@
 	-webkit-transform:  matrix(0.00000000, 1.00000000, -1.00000000, 0.00000000, 0, 0);
 	-o-transform:  matrix(0.00000000, 1.00000000, -1.00000000, 0.00000000, 0, 0);
 }
+
+.expand-all {
+	cursor: pointer;
+}
