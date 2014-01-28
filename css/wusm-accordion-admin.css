@@ -1,7 +1,7 @@
-.question {
+.accordion-header {
 	border: 1px dashed red;
 }
 
-.answer {
+.accordion-body-text {
 	border: 1px dashed blue;
 }

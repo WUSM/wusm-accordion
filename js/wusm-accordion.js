@@ -1,21 +1,34 @@
 jQuery(document).ready(function($) {
-	if($('.question')[0]) {
-		$('.question').each(function() {
+	if($('.accordion-header')[0]) {
+		$('.accordion-header').each(function() {
 			$(this).html($(this).html() + "<span class='d1'>|</span><span class='d2'>|</span>");
 		});
 
-		$('.question').on('click', function() {
+		$('.accordion-header').click(function() {
+            $('.accordion-header').removeClass('open');
+            $('.accordion-body-text').slideUp('fast');
+            $('.d1').css('top','14px');
 			var $this = $(this);
-			$this.toggleClass('open');
-			( $this.find(".d1").css('top') === '29px' ) ? $this.find(".d1").animate({ top: 200}) : $this.find(".d1").animate({ top: 29});
-			$this.next('.answer').slideToggle();
+            if ($this.next('.accordion-body-text').is(':hidden')) {
+                $this.next('.accordion-body-text').slideDown('fast');
+                $this.addClass('open');
+                $this.find('.d1').animate({ top: 200 });
+            }
 		});
 
-		$('.expand-all').on('click', function() {
-			( $(this).html() === 'Expand all' ) ? $(this).html('Collapse all') : $(this).html('Expand all')
-			$('.question').each(function() {
-				$(this).click();
-			});
+		$('.expand-all').click(function() {
+            if ( $(this).html() === 'Expand all' ) {
+                $(this).html('Collapse all');
+                $('.accordion-body-text').slideDown('fast');
+                $('.accordion-body-text').addClass('open');
+                $('.d1').animate({ top: 200 });
+            } else {
+                $(this).html('Expand all');
+                $('.accordion-body-text').slideUp('fast');
+                $('.accordion-body-text').removeClass('open');
+                $('.d1').animate({ top: 14 });
+
+            }
 		});
 	}
 });

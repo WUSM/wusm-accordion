@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WUSM accordion
+Plugin Name: WUSM Accordion
 Plugin URI: 
 Description: Add accordions to WUSM sites
 Author: Aaron Graham
-Version: 0.5
-Author URI: 
+Version: 2014.01.22.01
+Author URI: http://medicine.wustl.edu/
 */
 
 add_action( 'init', 'github_plugin_updater_test_init' );
@@ -32,21 +32,15 @@ function github_plugin_updater_test_init() {
                 );
 
                 new WP_GitHub_Updater( $config );
-
         }
 
 }
 
 class wusm_accordion_plugin {
-	private $accordion_text;
-
-	/**
-	 *
-	 */
 	public function __construct() {
 		add_shortcode( 'wusm_expand_all', array( $this, 'accordion_shortcode' ) );
 		add_filter( 'mce_buttons_2', array( $this, 'my_mce_buttons_2' ) );
-		add_filter('tiny_mce_before_init', array( $this, 'aah_customize_mce' ) );
+		add_filter('tiny_mce_before_init', array( $this, 'customize_mce' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'accordion_shortcode_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'accordion_shortcode_admin_styles' ) );
 	}
@@ -55,35 +49,25 @@ class wusm_accordion_plugin {
 		return "<p class='expand-all'>Expand all</p>";
 	}
 
-	// add style selector drop down 
+	// Add style selector drop down on the second row of the Visual editor
 	function my_mce_buttons_2( $buttons ) {
 		array_unshift( $buttons, 'styleselect' );
 		return $buttons;
 	}
 
-	// customize the MCE editor
-	function aah_customize_mce( $init ) {
-		/* Only include these tags */
-		$init['theme_advanced_blockformats'] = 'h2,h3,h4,p';
-		/* Remove these buttons */
-		/*$init['theme_advanced_disable'] = 'forecolor, underline, justifyfull, indent, outdent';*/
-
-		/* Set up your custom style classes */
+	// Customize the MCE editor
+	function customize_mce( $init ) {
+		/* Register accordion styles */
 		$style_formats = array(
-			/*array(
-				'title' => 'Intro Paragraph',
-				'selector' => 'p',
-				'classes' => 'lead'
-			),*/
 			array(
-				'title'    => 'Accordion header',
-				'selector' => '*',
-				'classes'  => 'question'
+				'title'    => 'Accordion Header',
+                'selector' => '*',
+				'classes'  => 'accordion-header'
 			),
 			array(
-				'title'   => 'Accordion body text',
+				'title'   => 'Accordion Body Text',
 				'block'   => 'div',
-				'classes' => 'answer',
+				'classes' => 'accordion-body-text',
 				'wrapper' => true
 			),
 		);
@@ -104,7 +88,7 @@ class wusm_accordion_plugin {
 		wp_enqueue_script( 'accordion-script', plugins_url('js/wusm-accordion.js', __FILE__), array( 'jquery' ) );
 	}
 
-		/**
+    /**
 	 * Enqueue styles.
 	 *
 	 * @since 0.1.0
