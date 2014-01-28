@@ -4,7 +4,7 @@ Plugin Name: WUSM Accordion
 Plugin URI: 
 Description: Add accordions to WUSM sites
 Author: Aaron Graham
-Version: 2014.01.28.04
+Version: 2014.01.28.05
 Author URI: http://medicine.wustl.edu/
 */
 

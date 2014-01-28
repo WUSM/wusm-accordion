@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	if($('.accordion-header')[0]) {
 		$('.accordion-header').each(function() {
-			$(this).html($(this).html() + "<div class='d'><span class='d1'>|</span><span class='d2'>|</span></div>");
+			$(this).html($(this).html() + "<div class='d'><span class='d1'></span><span class='d2'></span></div>");
 		});
 
 		$('.accordion-header').click(function() {
@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
                 $this.next('.accordion-body-text').slideDown('fast');
                 $this.addClass('open');
             } else {
-                $('.d1').animate({ top: -1 });
+                $('.d1').animate({ top: 0 });
                 $('.accordion-header').removeClass('open');
                 $('.accordion-body-text').slideUp('fast');
             }
@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
                 $(this).html('Expand all');
                 $('.accordion-body-text').slideUp('fast');
                 $('.accordion-body-text').removeClass('open');
-                $('.d1').animate({ top: -1 });
+                $('.d1').animate({ top: 0 });
 
             }
 		});
