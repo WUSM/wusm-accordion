@@ -5,14 +5,15 @@ jQuery(document).ready(function($) {
 		});
 
 		$('.accordion-header').click(function() {
-            $('.d1').animate({ top: -1 });
-            $('.accordion-header').removeClass('open');
-            $('.accordion-body-text').slideUp('fast');
             var $this = $(this);
             if ($this.next('.accordion-body-text').is(':hidden')) {
                 $this.find('.d1').animate({ top: 40 });
                 $this.next('.accordion-body-text').slideDown('fast');
                 $this.addClass('open');
+            } else {
+                $('.d1').animate({ top: -1 });
+                $('.accordion-header').removeClass('open');
+                $('.accordion-body-text').slideUp('fast');
             }
 		});
 
