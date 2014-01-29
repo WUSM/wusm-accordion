@@ -27,7 +27,6 @@ jQuery(document).ready(function($) {
 				$('.accordion-body-text').slideUp('fast');
 				$('.accordion-body-text').removeClass('open');
 				$('.d1').animate({ top: 0 });
-
 			}
 		});
 	}
