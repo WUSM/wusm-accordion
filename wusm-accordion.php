@@ -4,35 +4,37 @@ Plugin Name: WUSM Accordion
 Plugin URI: 
 Description: Add accordions to WUSM sites
 Author: Aaron Graham
-Version: 2014.01.28.06
+Version: 2014.01.30.0
 Author URI: http://medicine.wustl.edu/
 */
 
-add_action( 'init', 'github_plugin_updater_test_init' );
-function github_plugin_updater_test_init() {
+add_action( 'init', 'github_plugin_updater_wusm_accordion_init' );
+function github_plugin_updater_wusm_accordion_init() {
 
-        include_once 'updater.php';
+		if( ! class_exists( 'WP_GitHub_Updater' ) )
+			include_once 'updater.php';
 
-        define( 'WP_GITHUB_FORCE_UPDATE', true );
+		if( ! defined( 'WP_GITHUB_FORCE_UPDATE' ) )
+			define( 'WP_GITHUB_FORCE_UPDATE', true );
 
-        if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+		if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
 
-                $config = array(
-                        'slug' => plugin_basename( __FILE__ ),
-                        'proper_folder_name' => 'wusm-accordion',
-                        'api_url' => 'https://api.github.com/repos/coderaaron/wusm-accordion',
-                        'raw_url' => 'https://raw.github.com/coderaaron/wusm-accordion/master',
-                        'github_url' => 'https://github.com/coderaaron/wusm-accordion',
-                        'zip_url' => 'https://github.com/coderaaron/wusm-accordion/archive/master.zip',
-                        'sslverify' => true,
-                        'requires' => '3.0',
-                        'tested' => '3.8',
-                        'readme' => 'README.md',
-                        'access_token' => '',
-                );
+				$config = array(
+						'slug' => plugin_basename( __FILE__ ),
+						'proper_folder_name' => 'wusm-accordion',
+						'api_url' => 'https://api.github.com/repos/coderaaron/wusm-accordion',
+						'raw_url' => 'https://raw.github.com/coderaaron/wusm-accordion/master',
+						'github_url' => 'https://github.com/coderaaron/wusm-accordion',
+						'zip_url' => 'https://github.com/coderaaron/wusm-accordion/archive/master.zip',
+						'sslverify' => true,
+						'requires' => '3.0',
+						'tested' => '3.8',
+						'readme' => 'README.md',
+						'access_token' => '',
+				);
 
-                new WP_GitHub_Updater( $config );
-        }
+				new WP_GitHub_Updater( $config );
+		}
 
 }
 
@@ -61,7 +63,7 @@ class wusm_accordion_plugin {
 		$style_formats = array(
 			array(
 				'title'    => 'Accordion Header',
-                'selector' => '*',
+				'selector' => '*',
 				'classes'  => 'accordion-header'
 			),
 			array(
@@ -88,7 +90,7 @@ class wusm_accordion_plugin {
 		wp_enqueue_script( 'accordion-script', plugins_url('js/wusm-accordion.js', __FILE__), array( 'jquery' ) );
 	}
 
-    /**
+	/**
 	 * Enqueue styles.
 	 *
 	 * @since 0.1.0
