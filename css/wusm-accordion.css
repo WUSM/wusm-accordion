@@ -5,12 +5,8 @@
 	padding: 15px;
 	margin: 0 0 -1px 0;
 	cursor: pointer;
-	position: relative;
 	overflow-y: hidden;
 	color: #900;
-	height: 24px;
-	font-family: Arial, sans-serif;
-	line-height: normal;
 }
 
 .accordion-header:hover {
@@ -21,33 +17,47 @@
 	border-bottom: none;
 }
 
+.accordion-header p, .accordion-header h2, .accordion-header h3, .accordion-header h4 {
+    display: inline-block;
+    width: 382px;
+    margin: 0;
+    line-height: normal;
+    vertical-align: middle;
+}
+
 .d {
-	float: right;
+    display: inline-block;
 	position: relative;
-	height: 22px;
 	width: 22px;
+    height: 22px;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+.ie7 .accordion-header p, .ie7 .accordion-header h2, .ie7 .accordion-header h3, .ie7 .accordion-header h4, .ie7 .d {
+    zoom: 1;
+    display: inline;
 }
 
 .ie7 .d {
-	bottom: 15px;
+    overflow-y: hidden;
 }
 
 .d1, .d2 {
-	color: #900;
 	position: absolute;
 }
 
 .d1 {
 	left: 9px;
+    width: 2px;
 	height: 22px;
-	width: 4px;
 	background-color: #900;
 }
 
 .d2 {
-	top: 9px;
+	top: 10px;
 	width: 22px;
-	height: 4px;
+	height: 2px;
 	background-color: #900;
 }
 
@@ -66,10 +76,16 @@
 
 @media screen and (max-width:518px) {
 	.accordion-header {
-		width: 80%;
+		width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
 	}
 
-	.accordion-body-text {
+    .accordion-header p, .accordion-header h2, .accordion-header h3, .accordion-header h4 {
+        width: 82%;
+    }
+
+    .accordion-body-text {
 		width: 80%;
 		margin: 0 0 0 10%;
 	}

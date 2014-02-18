@@ -63,8 +63,9 @@ class wusm_accordion_plugin {
 		$style_formats = array(
 			array(
 				'title'    => 'Accordion Header',
-				'selector' => '*',
-				'classes'  => 'accordion-header'
+                'block' => 'div',
+				'classes'  => 'accordion-header',
+                'wrapper' => 'true'
 			),
 			array(
 				'title'   => 'Accordion Body Text',
