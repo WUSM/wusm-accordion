@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 			$('.open').removeClass('open');
 			var $this = $(this);
 			if ($this.next('.accordion-body-text').is(':hidden')) {
-				$this.find('.d1').animate({ top: 50 });
+				$this.find('.d1').animate({ top: 100 });
 				$this.next('.accordion-body-text').slideDown('fast');
 				$this.addClass('open');
 			}
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 				$(this).html('Collapse all');
 				$('.accordion-body-text').slideDown('fast');
 				$('.accordion-body-text').addClass('open');
-				$('.d1').animate({ top: 50 });
+				$('.d1').animate({ top: 100 });
 			} else {
 				$(this).html('Expand all');
 				$('.accordion-body-text').slideUp('fast');

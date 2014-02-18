@@ -1,7 +1,16 @@
-.accordion-header {
-	border: 1px dashed red;
+body#tinymce.wp-editor .accordion-header {
+    border: 1px dashed red;
+    margin-bottom: 10px;
 }
 
-.accordion-body-text {
+body#tinymce.wp-editor .accordion-header p, body#tinymce.wp-editor .accordion-header h2, body#tinymce.wp-editor .accordion-header h3, body#tinymce.wp-editor .accordion-header h4 {
+    padding: 15px;
+    margin: 0;
+    line-height: normal;
+}
+
+body#tinymce.wp-editor .accordion-body-text {
 	border: 1px dashed blue;
+    padding: 15px;
+    margin-bottom: 10px;
 }
