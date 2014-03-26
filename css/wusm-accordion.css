@@ -1,6 +1,6 @@
 
 .accordion-header {
-	width: 420px;
+	width: 100%;
 	border-top: 1px solid #e0e0e0;
 	border-bottom: 1px solid #e0e0e0;
 	padding: 15px;
@@ -21,7 +21,7 @@
 
 .accordion-header p, .accordion-header h2, .accordion-header h3, .accordion-header h4 {
     display: inline-block;
-    width: 382px;
+    width: auto;
     margin: 0;
     line-height: normal;
     vertical-align: middle;
