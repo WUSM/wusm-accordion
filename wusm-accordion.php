@@ -41,8 +41,8 @@ function github_plugin_updater_wusm_accordion_init() {
 class wusm_accordion_plugin {
 	public function __construct() {
 		add_shortcode( 'wusm_expand_all', array( $this, 'accordion_shortcode' ) );
-		add_filter( 'mce_buttons_2', array( $this, 'my_mce_buttons_2' ) );
-		add_filter('tiny_mce_before_init', array( $this, 'customize_mce' ) );
+		/*add_filter( 'mce_buttons_2', array( $this, 'my_mce_buttons_2' ) );*/
+		add_filter( 'tiny_mce_before_init', array( $this, 'customize_mce' ), 8 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'accordion_shortcode_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'accordion_shortcode_admin_styles' ) );
 	}
@@ -51,11 +51,11 @@ class wusm_accordion_plugin {
 		return "<p class='expand-all'>Expand all</p>";
 	}
 
-	// Add style selector drop down on the second row of the Visual editor
+	/*// Add style selector drop down on the second row of the Visual editor
 	function my_mce_buttons_2( $buttons ) {
 		array_unshift( $buttons, 'styleselect' );
 		return $buttons;
-	}
+	}*/
 
 	// Customize the MCE editor
 	function customize_mce( $init ) {
@@ -75,7 +75,7 @@ class wusm_accordion_plugin {
 			),
 		);
 
-		/* Only include your custom styles -- defined above -- in your style dropdown */
+		$init['style_formats_merge'] = true;
 		$init['style_formats'] = json_encode( $style_formats );
 		return $init;
 	}
