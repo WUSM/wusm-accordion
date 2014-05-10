@@ -4,7 +4,7 @@ Plugin Name: WUSM Accordion
 Plugin URI: 
 Description: Add accordions to WUSM sites
 Author: Aaron Graham
-Version: 14.03.26.0
+Version:14.05.10.0
 Author URI: http://medicine.wustl.edu/
 */
 
@@ -22,10 +22,10 @@ function github_plugin_updater_wusm_accordion_init() {
 				$config = array(
 						'slug' => plugin_basename( __FILE__ ),
 						'proper_folder_name' => 'wusm-accordion',
-						'api_url' => 'https://api.github.com/repos/coderaaron/wusm-accordion',
-						'raw_url' => 'https://raw.github.com/coderaaron/wusm-accordion/master',
-						'github_url' => 'https://github.com/coderaaron/wusm-accordion',
-						'zip_url' => 'https://github.com/coderaaron/wusm-accordion/archive/master.zip',
+						'api_url' => 'https://api.github.com/repos/wusm/wusm-accordion',
+						'raw_url' => 'https://raw.github.com/wusm/wusm-accordion/master',
+						'github_url' => 'https://github.com/wusm/wusm-accordion',
+						'zip_url' => 'https://github.com/wusm/wusm-accordion/archive/master.zip',
 						'sslverify' => true,
 						'requires' => '3.0',
 						'tested' => '3.8',
