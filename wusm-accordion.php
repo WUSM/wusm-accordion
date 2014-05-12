@@ -4,7 +4,7 @@ Plugin Name: WUSM Accordion
 Plugin URI: 
 Description: Add accordions to WUSM sites
 Author: Aaron Graham
-Version:14.05.10.0
+Version:14.05.12.0
 Author URI: http://medicine.wustl.edu/
 */
 
@@ -60,23 +60,35 @@ class wusm_accordion_plugin {
 	// Customize the MCE editor
 	function customize_mce( $init ) {
 		/* Register accordion styles */
-		$style_formats = array(
+		$new_styles = array(
 			array(
-				'title'    => 'Accordion Header',
-                'block' => 'div',
-				'classes'  => 'accordion-header',
-                'wrapper' => 'true'
-			),
-			array(
-				'title'   => 'Accordion Body Text',
-				'block'   => 'div',
-				'classes' => 'accordion-body-text',
-				'wrapper' => true
+				'title'	=> 'WUSM Accordion Styles',
+				'items'	=> array(
+					array(
+						'title'    => 'Accordion Header',
+						'block' => 'div',
+						'classes'  => 'accordion-header',
+						'wrapper' => 'true'
+					),
+					array(
+						'title'   => 'Accordion Body Text',
+						'block'   => 'div',
+						'classes' => 'accordion-body-text',
+						'wrapper' => true
+					)
+				),
 			),
 		);
-
+		
 		$init['style_formats_merge'] = true;
-		$init['style_formats'] = json_encode( $style_formats );
+
+		// Add new styles
+		if( ! isset( $init['style_formats'] ) ) {
+			$init['style_formats'] = json_encode( $new_styles );
+		} else {
+			$init['style_formats'] = json_encode( array_merge( json_decode( $init['style_formats'] ), $new_styles ) );
+		}
+
 		return $init;
 	}
 
