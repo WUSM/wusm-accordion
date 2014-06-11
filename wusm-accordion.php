@@ -28,7 +28,7 @@ function github_plugin_updater_wusm_accordion_init() {
 						'zip_url' => 'https://github.com/wusm/wusm-accordion/archive/master.zip',
 						'sslverify' => true,
 						'requires' => '3.0',
-						'tested' => '3.8',
+						'tested' => '3.9.1',
 						'readme' => 'README.md',
 						'access_token' => '',
 				);
