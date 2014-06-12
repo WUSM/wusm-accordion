@@ -13,6 +13,10 @@ jQuery(document).ready(function($) {
 				$this.find('.d1').animate({ top: 100 });
 				$this.next('.accordion-body-text').slideDown('fast');
 				$this.addClass('open-accordion');
+			} else {
+				$this.find('.d1').animate({ top: 0 });
+				$this.next('.accordion-body-text').slideUp('fast');
+				$this.removeClass('open-accordion');
 			}
 		});
 
