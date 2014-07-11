@@ -5,9 +5,6 @@ jQuery(document).ready(function($) {
 		});
 
 		$('.accordion-header').click(function() {
-			//$('.open-accordion').find('.d1').animate({ top: 0 });
-			//$('.open-accordion').next('.accordion-body-text').slideUp('fast');
-			//$('.open-accordion').removeClass('open-accordion');
 			var $this = $(this);
 			if ($this.next('.accordion-body-text').is(':hidden')) {
 				$this.find('.d1').animate({ top: 100 });
