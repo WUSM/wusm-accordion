@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
 		});
 
 		$('.accordion-header').click(function() {
+			if (!jQuery('.d1').is(':animated') ) {
 			//$('.open-accordion').find('.d1').animate({ top: 0 });
 			//$('.open-accordion').next('.accordion-body-text').slideUp('fast');
 			//$('.open-accordion').removeClass('open-accordion');
@@ -16,7 +17,10 @@ jQuery(document).ready(function($) {
 			} else {
 				$this.find('.d1').animate({ top: 0 });
 				$this.next('.accordion-body-text').slideUp('fast');
-				$this.removeClass('open-accordion');
+				setTimeout(function(){
+					$this.removeClass('open-accordion');
+				}, 200);
+			}
 			}
 		});
 
